@@ -12,6 +12,7 @@ public class WeakSpot : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            collision.GetComponent<AttackSteal>().AttackStealMan(transform.parent.gameObject.tag);
             Destroy(ObjectToDestroy);
             playerMovement.rb.AddForce(new Vector2(0f, 500));
         }

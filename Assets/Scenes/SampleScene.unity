@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  AttackStealScript: {fileID: 0}
   currentHealth: 0
   Enemy: {fileID: 1600277225}
 --- !u!50 &12964101
@@ -452,6 +453,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1776087, y: 0.38667154}
   m_EdgeRadius: 0
+--- !u!1 &249732047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249732048}
+  - component: {fileID: 249732049}
+  m_Layer: 0
+  m_Name: Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249732048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249732047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 594257802}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249732049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249732047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4367933e711f2468e76f9d6e391504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8438169148055347327, guid: 74d14c764c076564ea6ed55f8f62d767, type: 3}
 --- !u!1 &305182309
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 383, y: -119}
+  m_AnchoredPosition: {x: 380, y: -122}
   m_SizeDelta: {x: 648.06, y: 110.339966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305182311
@@ -570,6 +615,7 @@ GameObject:
   - component: {fileID: 438465039}
   - component: {fileID: 438465044}
   - component: {fileID: 438465045}
+  - component: {fileID: 438465046}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -703,7 +749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438465038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: 0.36, z: 0}
+  m_LocalPosition: {x: 1.73, y: 1.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1276035520}
@@ -753,6 +799,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   test: 0
+  FireEnable: 0
+  FireScript: {fileID: 249732049}
+  ProjectileTarget: {x: 0, y: 0, z: 0}
+--- !u!114 &438465046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438465038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2396a5864594f3aab0cec9c9167b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 438465038}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +912,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &594257801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594257802}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594257802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594257801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.6911097, y: 2.0736864, z: -6.88127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 249732048}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610741221
 GameObject:
@@ -4872,7 +4965,7 @@ GameObject:
   - component: {fileID: 1314649458}
   - component: {fileID: 1314649457}
   - component: {fileID: 1314649456}
-  - component: {fileID: 1314649462}
+  - component: {fileID: 1314649461}
   m_Layer: 6
   m_Name: Graphics
   m_TagString: Enemy
@@ -4908,6 +5001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  AttackStealScript: {fileID: 0}
   currentHealth: 0
   Enemy: {fileID: 1319455573}
 --- !u!50 &1314649457
@@ -5022,7 +5116,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1314649462
+--- !u!114 &1314649461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5031,13 +5125,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314649454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4367933e711f2468e76f9d6e391504, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e130d3c304f74e8da401a98f6d63c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monscript: {fileID: 249732049}
   startTimeBtwShots: 2
   projectile: {fileID: 8438169148055347327, guid: 74d14c764c076564ea6ed55f8f62d767, type: 3}
-  player: {fileID: 438465043}
   DetectionRange: 10
+  speed: 10
 --- !u!1 &1319455573
 GameObject:
   m_ObjectHideFlags: 0
@@ -5346,8 +5441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -238, y: 68}
+  m_SizeDelta: {x: -430.7, y: -55.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588670714
 MonoBehaviour:
@@ -5466,13 +5561,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1647074681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4367933e711f2468e76f9d6e391504, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e130d3c304f74e8da401a98f6d63c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monscript: {fileID: 249732049}
   startTimeBtwShots: 2
   projectile: {fileID: 8438169148055347327, guid: 74d14c764c076564ea6ed55f8f62d767, type: 3}
-  player: {fileID: 438465043}
   DetectionRange: 10
+  speed: 10
 --- !u!114 &1647074684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5486,6 +5582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  AttackStealScript: {fileID: 0}
   currentHealth: 0
   Enemy: {fileID: 610741221}
 --- !u!50 &1647074685
@@ -5744,6 +5841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  AttackStealScript: {fileID: 0}
   currentHealth: 0
   Enemy: {fileID: 1460602665}
 --- !u!50 &1738744363
@@ -5947,8 +6045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 648.0638, y: 110.3401}
+  m_AnchoredPosition: {x: -238, y: 68}
+  m_SizeDelta: {x: 217.36, y: 55.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013841984
 MonoBehaviour:

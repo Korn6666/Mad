@@ -6,6 +6,7 @@ public class CombatDummyController : MonoBehaviour
 {
     
     public float maxHealth = 20f;
+    public AttackSteal AttackStealScript;
 
     [SerializeField]
     private float currentHealth;
@@ -35,6 +36,7 @@ public class CombatDummyController : MonoBehaviour
 
     private void Die()
     {
+        AttackStealScript.AttackStealMan(transform.parent.gameObject.GetComponent<Collider>().tag);
         Destroy(Enemy);
     }
 }

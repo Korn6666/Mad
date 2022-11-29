@@ -7,9 +7,9 @@ public class Projectile : MonoBehaviour
 
     public float speed = 10;
     public int damageProjectile = 10;
-
     private Transform player;
     private Vector2 target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +20,14 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+
 
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
         }
     }
-
-    
 
     void DestroyProjectile()
     {
@@ -37,11 +36,10 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player"))
-        {
-            DestroyProjectile();
 
-        }
+        DestroyProjectile();
+
+
         if (collision.transform.CompareTag("Player"))
         {
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();

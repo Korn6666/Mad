@@ -21,9 +21,15 @@ public class PlayerCombatController : MonoBehaviour
 
     public bool test = false;
 
+    public bool FireEnable = false;
+
+    public Fire FireScript;
+
+    Vector3 offset = new Vector3(5,0,0);
+    public Vector3 ProjectileTarget;
+
     private void Start()
     {
-        
     }
 
     private void Update()
@@ -43,6 +49,12 @@ public class PlayerCombatController : MonoBehaviour
                 gotInput = true;
                 lastInputTime = Time.time;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && FireEnable == true)
+        {
+            ProjectileTarget = transform.position + offset;
+            FireScript.Launch_Fire(ProjectileTarget, transform.position);
         }
     }
 
